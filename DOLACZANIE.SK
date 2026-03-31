@@ -1,0 +1,4 @@
+on join:
+        set join message to "&a+ &f%player% &adołączył/a na serwer"
+on quit:
+        set quit message to "&c- &f%player% &copuścił/a nasz serwer"
