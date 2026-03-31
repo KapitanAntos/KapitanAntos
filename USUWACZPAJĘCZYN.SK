@@ -1,0 +1,22 @@
+command /dajusuwacz:
+    permission: usuwacz.daj
+    permission message: &cNie masz permisji do tej komendy!
+    trigger:
+        give player {@remover-item} named {@remover-name}
+        send &aOtrzymałeś &cUsuwacz Pajęczyn&a!
+2.Rangi
+command /nadaj-range <player> <text>:
+    permission: rang.nadaj
+    permission message: &cNie masz uprawnień do tej komendy!
+    trigger:
+        if arg-1 is not online:
+            send "&cTen gracz nie jest online!" to sender
+            stop
+
+        set {_nick} to name of arg-1
+        set {_ranga} to arg-2
+
+        execute console command "lp user %{_nick}% parent set %{_ranga}%"
+
+        send "&aNadano rangę &e%{_ranga}% &agraczowi &e%{_nick}%&a!" to sender
+        send "&aOtrzymałeś rangę &e%{_ranga}%&a!" to arg-1
